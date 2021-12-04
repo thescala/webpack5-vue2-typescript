@@ -169,12 +169,36 @@ https://juejin.cn/post/6844903853708541959
 1. 添加依赖
 
 ```sh
-npm install --save-dev @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-transform-runtime @babel/preset-env @babel/preset-typescript babel-loader typescript tsconfig-paths-webpack-plugin
+npm install --save-dev @babel/core @babel/plugin-proposal-class-properties @babel/plugin-proposal-decorators @babel/plugin-transform-runtime @babel/preset-env @babel/preset-typescript babel-eslint babel-loader babel-plugin-component babel-plugin-import typescript tsconfig-paths-webpack-plugin
 ```
 
 ```sh
-npm install @babel/polyfill @babel/runtime
+npm install  @babel/runtime
 ```
+
+注意：
+
+- 在 ES2022，`@babel/preset-env `包含`@babel/plugin-proposal-class-properties`插件。
+
+- 同时使用`@babel/plugin-proposal-class-properties`和`@babel/plugin-proposal-decorators`，要确保在引用 `@babel/plugin-proposal-class-properties` 之前引用 `@babel/plugin-proposal-decorators`。
+
+- `@babel/plugin-proposal-decorators`使用`legacy: true` 模式时,必须在必须启用 `setPublicClassFields`
+
+示例：
+
+```json
+{
+	"assumptions": {
+		"setPublicClassFields": true
+	},
+	"plugins": [
+		["@babel/plugin-proposal-decorators", { "legacy": true }],
+		["@babel/plugin-proposal-class-properties"]
+	]
+}
+```
+
+本段来自：[@babel/plugin-proposal-decorators](https://babel.docschina.org/docs/en/babel-plugin-proposal-decorators/)
 
 2. 修改相关配置
 
@@ -239,6 +263,9 @@ babel.config.json
       }
     ]
   ],
+  "assumptions": {
+    "setPublicClassFields": true
+  },
   "plugins": [
     [
       "@babel/plugin-proposal-decorators",
@@ -547,7 +574,6 @@ module.exports = {
     rules: [
       {
         test: /\.ts|js$/,
-        exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader'
@@ -1063,3 +1089,7 @@ rules: {
     '@typescript-eslint/ban-ts-comment': 'off'
   }
 ```
+
+### 参考
+
+https://github.com/typestack/class-transformer

@@ -1,13 +1,18 @@
 import Vue from 'vue'
 import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/index.css'
-import '@/style.css'
-// // @ts-ignore
+//  @ts-ignore
+import router from '@/router/index'
+import '@/styles/main.scss'
+//  @ts-ignore
 import App from '@/App.vue'
+//  @ts-ignore
+import store from '@/store/index'
 
 Vue.use(ElementUI)
 
 new Vue({
 	el: '#app',
+	router,
+	 store,
 	render: (h) => h(App)
 })

@@ -8,7 +8,7 @@
     "build": "webpack --config build/webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix \"src/**/*.{js,ts,jsx,tsx}\" \"src/**/*.vue\"",
-    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\" \"src/**/*.vue\" ./*.{js,ts}"
+    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx}\" \"src/**/*.vue\""
   },
   "keywords": [
     "webpack",
@@ -28,6 +28,7 @@
     "@babel/preset-typescript": "^7.16.0",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
+    "@vue/runtime-dom": "^3.2.20",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-minimizer-webpack-plugin": "^3.1.1",
@@ -41,9 +42,10 @@
     "postcss": "^8.3.11",
     "postcss-loader": "^6.2.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.4.1",
+    "prettier": "2.4.1",
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
+    "terser-webpack-plugin": "^5.2.4",
     "tsconfig-paths-webpack-plugin": "^3.5.1",
     "typescript": "^4.4.4",
     "vue-eslint-parser": "^8.0.1",
@@ -55,11 +57,12 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "@babel/runtime": "^7.16.0",
     "element-ui": "^2.15.6",
     "vue": "^2.6.14",
     "vue-class-component": "^7.2.6",
-    "vue-property-decorator": "^9.1.2"
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.5.3",
+    "vuex": "^3.6.2"
   }
 }

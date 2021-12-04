@@ -1,0 +1,63 @@
+[
+  {
+    "path": "/",
+    "name": "home",
+    "meta": {
+      "title": "首页",
+      "icon": "el-icon-document",
+      "roles": [
+        ""
+      ]
+    },
+    "children": []
+  },
+  {
+    "path": "/system",
+    "name": "system",
+    "meta": {
+      "title": "系统管理",
+      "icon": "el-icon-menu",
+      "roles": [
+        "sys:manage"
+      ]
+    },
+    "children": [
+      {
+        "path": "/department",
+        "name": "department",
+        "meta": {
+          "title": "机构管理",
+          "icon": "el-icon-document",
+          "roles": [
+            "sys:dept"
+          ]
+        },
+        "children": []
+      },
+      {
+        "path": "/userList",
+        "name": "userList",
+        "meta": {
+          "title": "用户管理",
+          "icon": "el-icon-s-custom",
+          "roles": [
+            "sys:user"
+          ]
+        },
+        "children": []
+      },
+      {
+        "path": "/roleList",
+        "name": "roleList",
+        "meta": {
+          "title": "角色管理",
+          "icon": "el-icon-s-tools",
+          "roles": [
+            "sys:roles"
+          ]
+        },
+        "children": []
+      }
+    ]
+  }
+]
